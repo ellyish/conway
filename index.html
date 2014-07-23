@@ -7,7 +7,10 @@
 <body>
 	<canvas id="canvas"></canvas>
 
+	<script type="text/javascript" src="game.js"></script>
 	<script type="text/javascript">
+
+
 
 		(function () {
 
@@ -26,31 +29,41 @@
 
 			var canvas, context, toggle;
 
-			init();
-			animate();
 
 			function init() {
-
 			    canvas = document.createElement( 'canvas' );
 			    canvas.width = 512;
 			    canvas.height = 512;
-
 			    context = canvas.getContext( '2d' );
-
 			    document.body.appendChild( canvas );
+			}
+
+			
+			init();
+			var g = new grid({ctx: context, width: 512, height: 512, w: 8});
+			g.init();
+
+
+			function frame () {
+				update();
+				render();
+				
+				requestAnimationFrame(frame);
+			}
+
+			frame();
+
+
+			function update () {
+						
+			}
+
+			function render() {
+	
+				g.render();
 
 			}
 
-			function animate() {
-			    requestAnimFrame( animate );
-			    
-			    draw();
-			}
-
-			function draw() {
-
-				context.fillRect(55,55,100,100)
-			}
 		})();
 
 	</script>
