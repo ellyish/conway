@@ -55,14 +55,20 @@
 
 
 			function update () {
-						
+				//g.update();
 			}
 
 			function render() {
 	
-				g.render();
+				//g.render();
 
 			}
+
+			setInterval(function  () {
+				g.update();
+				g.render();
+			}, 200)
+
 
 		})();
 
