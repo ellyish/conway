@@ -5,6 +5,7 @@ var cell = function  (options) {
 	that.x = options.x;
 	that.y = options.y;
 	that.w = options.w;
+	that.color = options.color;
 	that.currentState = options.currentState;
 
 
@@ -39,7 +40,8 @@ var grid = function (options) {
 					x: i*that.w,
 					y: j*that.w,
 					w: that.w,
-					currentState: Math.round(Math.pow(Math.random(), 10))
+					currentState: Math.round(Math.pow(Math.random(), 10)),
+					color: '#00ff00'
 				})
 			};
 		};		
@@ -83,8 +85,8 @@ var grid = function (options) {
 		for (var i = 1; i < col; i++) {
 			for (var j = 1; j < row; j++) {
 
-				that.cellArray[i][j].currentState == 1 ? that.ctx.fillStyle = 'black' : that.ctx.fillStyle = 'white';
-				that.ctx.fillRect(that.cellArray[i][j].x , that.cellArray[i][j].y, that.cellArray[i][j].w - 1, that.cellArray[i][j].w  - 1);
+				that.cellArray[i][j].currentState == 1 ? that.ctx.fillStyle = that.cellArray[i][j].color : that.ctx.fillStyle = '#0080ff';
+				that.ctx.fillRect(that.cellArray[i][j].x , that.cellArray[i][j].y, that.cellArray[i][j].w, that.cellArray[i][j].w);
 
 			};
 		};	
@@ -93,3 +95,11 @@ var grid = function (options) {
 	return that;
 
 }
+
+
+
+
+
+
+
+

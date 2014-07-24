@@ -32,15 +32,15 @@
 
 			function init() {
 			    canvas = document.createElement( 'canvas' );
-			    canvas.width = 512;
-			    canvas.height = 512;
+			    canvas.width = 1024;
+			    canvas.height = 600;
 			    context = canvas.getContext( '2d' );
 			    document.body.appendChild( canvas );
 			}
 
 			
 			init();
-			var g = new grid({ctx: context, width: 512, height: 512, w: 8});
+			var g = new grid({ctx: context, width: 1024, height: 600, w: 8});
 			g.init();
 
 
@@ -51,23 +51,24 @@
 				requestAnimationFrame(frame);
 			}
 
-			frame();
+			requestAnimationFrame(frame);
 
 
 			function update () {
-				//g.update();
+				g.update();
 			}
 
 			function render() {
 	
-				//g.render();
+				g.render();
+				blur(canvas, context, 4)
 
 			}
 
-			setInterval(function  () {
-				g.update();
-				g.render();
-			}, 200)
+			// setInterval(function  () {
+			// 	g.update();
+			// 	g.render();
+			// }, 1000)
 
 
 		})();
